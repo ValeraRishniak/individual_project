@@ -41,12 +41,9 @@ def sort(some_input):
     for root, dirs, files in os.walk(way_, topdown=False):
         for name_ in files:
                 files_name = Path(name_) #имя файла (назва.розширення)
-                print(files_name)
                 file_path_ = os.path.join(root, name_) #путь к файлу/архиву/тп (для переміщення/перейменування/розархівування)
-                print(file_path_)
                 #тут робимо зміну назви файла
                 name_normalize = f"{normalize(files_name.name[0:-len(files_name.suffix)])}{files_name.suffix}"
-                print(name_normalize)
                 os.rename(file_path_, way_/name_normalize) #процес перейменування (шлях до файла що перейменовуєм, новий шлях де він буде)
 #видалення пустих тек
     for root, dirs, files in os.walk(way_, topdown=False):
@@ -105,4 +102,5 @@ def sort(some_input):
                 
     return dict_for_return
 
-print(sort(r'C:\Users\Hewlett Packard\Desktop\Xlam'))
+if __name__ == '__main__':
+    sort(r'C:\Users\Hewlett Packard\Desktop\Xlam')
